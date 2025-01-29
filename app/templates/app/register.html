@@ -1,0 +1,218 @@
+{% block content %}
+
+<style>
+/* Global Styles */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(to right, #E3EAF3, #F7F9FC); /* Subtle Gradient */
+}
+
+/* Container */
+.container {
+    width: 100%;
+    max-width: 450px;
+    background: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    animation: fadeIn 0.8s ease-in-out;
+}
+
+/* Form Title */
+.form-title {
+    color: #333;
+    font-size: 26px;
+    font-weight: 800;
+    margin-bottom: 20px;
+}
+
+/* Input Fields */
+.main-user-info {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.user-input-box {
+    width: 100%;
+    text-align: left;
+}
+
+.user-input-box label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #555;
+    padding-left: 8px;
+}
+
+.user-input-box input {
+    width: 100%;
+    height: 45px;
+    padding: 10px 15px;
+    font-size: 16px;
+    border: 1px solid #D1D9E6;
+    border-radius: 6px;
+    background: #F8FAFC;
+    outline: none;
+    transition: border 0.3s ease-in-out;
+}
+
+/* Input Focus Effect */
+.user-input-box input:focus {
+    border: 1px solid #007BFF;
+    transform: scale(1.02);
+}
+
+/* Placeholder Styling */
+::placeholder {
+    color: #999;
+    font-size: 14px;
+}
+
+/* Status Selection */
+.status-details-box {
+    margin: 20px 0;
+}
+
+.status-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+}
+
+.status-category {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.status-category input {
+    display: none;
+}
+
+.status-category label {
+    padding: 8px 15px;
+    border: 1px solid #007BFF;
+    border-radius: 6px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+.status-category input:checked + label {
+    background: #007BFF;
+    color: white;
+}
+
+/* Submit Button */
+.form-submit-btn {
+    margin-top: 20px;
+}
+
+.form-submit-btn input {
+    width: 100%;
+    height: 45px;
+    font-size: 18px;
+    border: none;
+    border-radius: 6px;
+    color: #fff;
+    background: #007BFF;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+}
+
+.form-submit-btn input:hover {
+    background: #0056b3;
+    transform: scale(1.05);
+}
+
+/* Fade-in Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 500px) {
+    .container {
+        width: 90%;
+    }
+}
+
+</style>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Responsive Registration Form</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+    <div class="container">
+        <h1 class="form-title">Registration</h1>
+        <!-- Action attribute points to login page -->
+        <form action="login.html" method="get" id="registrationForm">
+            <div class="main-user-info">
+                <div class="user-input-box">
+                    <label for="fullName">Full Name</label>
+                    <input type="text" id="fullName" name="fullName" placeholder="Enter Full Name" required />
+                </div>
+                <div class="user-input-box">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" name="username" placeholder="Enter Username" required />
+                </div>
+                <div class="user-input-box">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="Enter Email" required />
+                </div>
+                <div class="user-input-box">
+                    <label for="phoneNumber">Phone Number</label>
+                    <input type="text" id="phoneNumber" name="phoneNumber" placeholder="Enter Phone Number" required />
+                </div>
+                <div class="user-input-box">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" placeholder="Enter Password" required />
+                </div>
+                <div class="user-input-box">
+                    <label for="confirmPassword">Confirm Password</label>
+                    <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm Password" required />
+                </div>
+            </div>
+            <div class="status-details-box">
+                <span class="status-title">Status</span>
+                <div class="status-category">
+                    <input type="radio" name="status" id="employee" required />
+                    <label for="employee">Employee</label>
+                    <input type="radio" name="status" id="employer" required />
+                    <label for="employer">Employer</label>
+                </div>
+            </div>
+            <div class="form-submit-btn">
+                <input type="submit" value="Register">
+            </div>
+        </form>
+    </div>
+</body>
+</html>
+
+{% endblock content %}
